@@ -8,7 +8,7 @@
         wp_register_style('fu_main_style', esc_url(get_stylesheet_uri()));
         wp_register_style('fu_google_fonts', "//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i", [], $ver);
         wp_register_style('fu_font_awesome', "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", [], $ver);
-        wp_register_style('fu_university_style', $url . '/asset/css/universitystyle.css');
+        wp_register_style('fu_university_style', $url . '/asset/css/universitystyle.css', [], $ver);
 
         wp_enqueue_style('fu_google_fonts');
         wp_enqueue_style('fu_font_awesome');
