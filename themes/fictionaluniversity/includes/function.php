@@ -2,6 +2,10 @@
 
 function university_features(){
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_image_size('profLandscape', 400, 260, true);
+    add_image_size('profPortrait', 480, 650, true);
+    add_image_size('pageBanner', 1500, 350, true);
     register_nav_menu('headermenulocation', 'Header Menu');
     register_nav_menu('footerlocationone', 'First Footer Menu');
     register_nav_menu('footerlocationtwo', 'Second Footer Menu');

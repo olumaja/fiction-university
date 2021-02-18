@@ -22,6 +22,39 @@
     <div class="generic-content"><?php the_content(); ?></div>
 
     <?php
+
+        //Professor custom query for relationship
+        $relatedProfessors = new WP_Query(array(
+            'post_type'     => 'professor',
+            'posts_per_page' => -1,
+            'orderby'       => 'title',
+            'order'         => 'ASC',
+            'meta_query'    => array(
+                array(
+                'key' => 'related_programs',
+                'compare' => 'LIKE',
+                'value' => '"' . get_the_ID() . '"'
+                )
+            )
+        ));
+
+        if($relatedProfessors->have_posts()){
+
+            echo '<hr class="section-break">';
+            echo '<h2 class="headline headline--medium">' . get_the_title() . ' Professors</h2>';
+            echo '<ul class="professor-cards">';
+            while($relatedProfessors->have_posts()){
+                $relatedProfessors->the_post(); ?>
+                <li class="professor-card__list-item"><a class="professor-card" href="<?php the_permalink(); ?>">
+                    <img class="profess-card__image" src="<?php the_post_thumbnail_url('profLandscape') ?>" >
+                    <span class="professor-card__name"><?php the_title(); ?></span>
+                </a></li>
+            <?php } 
+            echo '</ul>';
+        } 
+        wp_reset_postdata();
+
+            //Event custom query for relationship
             $today = date('Ymd');
             $eventPost = new WP_Query(array(
                 'post_type'     => 'event',
@@ -81,7 +114,8 @@
                   </div>
             <?php } 
 
-            } ?>
+            } 
+        ?>
 
 </div>
 <?php
