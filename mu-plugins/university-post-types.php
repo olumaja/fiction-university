@@ -38,13 +38,14 @@ function university_post_types(){
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'events' ),
         'show_in_menu'      => true,
+        'show_in_rest'      => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'events' ),
         'menu_position'     => 20,
         'capability_type'   => 'post',
         'menu_icon'     => 'dashicons-calendar',
-        'support' => array('title', 'editor', 'author', 'excerpt', 'thumbnail', 'comments')
+        'supports' => array('title', 'editor', 'author', 'excerpt', 'thumbnail', 'comments')
     ));
 }
 
