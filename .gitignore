@@ -6,11 +6,6 @@ wp-content/*
 !wp-content/themes/
 
 
-uploads/*
-# ignore these plugins
-plugins/hello.php
-
-
 
 # ignore node dependency directories
 node_modules/
