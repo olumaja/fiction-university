@@ -3,6 +3,7 @@
 
     while(have_posts()){
         the_post();
+        
         if(get_field('page_banner_background_image')){
             $photo = get_field('page_banner_background_image')['sizes']['pageBanner'];
         }

@@ -140,6 +140,53 @@ function university_post_types(){
         'supports' => array('title', 'editor', 'thumbnail')
     ));
 
+    //Campus custom post type
+    $labels = array(
+        'name'                  => __( 'Campuses', 'Post type general name', 'fictionuniversity' ),
+        'singular_name'         => _x( 'Campus', 'Post type singular name', 'fictionuniversity' ),
+        'menu_name'             => _x( 'Campuses', 'Admin Menu text', 'fictionuniversity' ),
+        'name_admin_bar'        => _x( 'Campus', 'Add New on Toolbar', 'fictionuniversity' ),
+        'add_new'               => __( 'Add New', 'fictionuniversity' ),
+        'add_new_item'          => __( 'Add New Campus', 'fictionuniversity' ),
+        'new_item'              => __( 'New Campus', 'fictionuniversity' ),
+        'edit_item'             => __( 'Edit Campus', 'fictionuniversity' ),
+        'view_item'             => __( 'View Campus', 'fictionuniversity' ),
+        'all_items'             => __( 'All Campuses', 'fictionuniversity' ),
+        'search_items'          => __( 'Search Campuses', 'fictionuniversity' ),
+        'parent_item_colon'     => __( 'Parent Campuses:', 'fictionuniversity' ),
+        'not_found'             => __( 'No Campuses found.', 'fictionuniversity' ),
+        'not_found_in_trash'    => __( 'No Campuses found in Trash.', 'fictionuniversity' ),
+        'featured_image'        => _x( 'Campus Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'fictionuniversity' ),
+        'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'fictionuniversity' ),
+        'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'fictionuniversity' ),
+        'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'fictionuniversity' ),
+        'archives'              => _x( 'Campus archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'fictionuniversity' ),
+        'insert_into_item'      => _x( 'Insert into Campus', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'fictionuniversity' ),
+        'uploaded_to_this_item' => _x( 'Uploaded to this Campus', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'fictionuniversity' ),
+        'filter_items_list'     => _x( 'Filter Campuses list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'fictionuniversity' ),
+        'items_list_navigation' => _x( 'Campuses list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'fictionuniversity' ),
+        'items_list'            => _x( 'Campuses list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'fictionuniversity' ),
+    );
+
+    register_post_type('campus', array(
+        'labels'            => $labels,
+        'public'            => true,
+        'hierarchical'      => false,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_menu'      => true,
+        'show_in_rest'      => true,
+        'query_var'         => true,
+        'menu_position'     => 23,
+        'capability_type'   => 'post',
+        'menu_icon'         => 'dashicons-location-alt',
+        'supports'          => array('title', 'editor', 'excerpt'),
+        'rewrite'           => array('slug' => 'campuses'),
+        'has_archive'       => true,
+        'description'       => 'See all our campus',
+    ));
+
 }
 
 add_action('init', 'university_post_types');
