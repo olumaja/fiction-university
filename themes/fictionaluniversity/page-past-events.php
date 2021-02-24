@@ -1,14 +1,20 @@
-<?php get_header(); ?>
+<?php get_header(); 
 
-<div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/asset/images/ocean.jpg') ?>);"></div>
-    <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title"><?php the_title() ?></h1>
-      <div class="page-banner__intro">
-        <p>A recap of our past events</p>
-      </div>
-    </div>  
-</div>
+if(get_field('page_banner_background_image')){
+    $photo = get_field('page_banner_background_image')['sizes']['pageBanner'];
+}
+else{
+  $photo = '';
+}
+
+pageBanner(array(
+  'title' => get_the_title(),
+  'subtitle' => get_field('page_banner_subtitle'),
+  'photo' => $photo
+  
+));
+  
+?>
 
 <div class="container container--narrow page-section">
     <?php

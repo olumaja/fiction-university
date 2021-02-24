@@ -38,26 +38,26 @@
 
     if($parentID or $childrenArray){ ?>
       <div class="page-links">
-      <h2 class="page-links__title"><a href="<?php echo get_permalink($parentID); ?>"><?php echo get_the_title($parentID) ?></a></h2>
-      <ul class="min-list">
+        <h2 class="page-links__title"><a href="<?php echo get_permalink($parentID); ?>"><?php echo get_the_title($parentID) ?></a></h2>
+        <ul class="min-list">
 
-        <?php 
+          <?php 
 
-          if($parentID){
-            $findChildrenOf = $parentID;
-          }
-          else{
-            $findChildrenOf = get_the_ID();
-          }
+            if($parentID){
+              $findChildrenOf = $parentID;
+            }
+            else{
+              $findChildrenOf = get_the_ID();
+            }
 
-          wp_list_pages(array(
-            'title_li' => NULL,
-            'child_of' => $findChildrenOf,
-            'sort_column' => 'menu_order'
-          ));
+            wp_list_pages(array(
+              'title_li' => NULL,
+              'child_of' => $findChildrenOf,
+              'sort_column' => 'menu_order'
+            ));
 
-        ?>
-      </ul>
+          ?>
+        </ul>
     </div>
     <?php } ?>
     

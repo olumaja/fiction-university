@@ -1,6 +1,25 @@
 <?php
 
 function university_features(){
+
+    $defaults = array(
+        'default-image'          => get_theme_file_uri('/asset/images/library-hero.jpg'),
+        'random-default'         => false,
+        'width'                  => 1920,
+        'height'                 => 796,
+        'flex-height'            => true,
+        'flex-width'             => true,
+        'default-text-color'     => '000',
+        'header-text'            => true,
+        'uploads'                => true,
+        'wp-head-callback'       => '',
+        'admin-head-callback'    => 'adminhead_cb',
+        'admin-preview-callback' => 'adminpreview_cb',
+        'video'                  => false,
+        'video-active-callback'  => 'is_front_page',
+    );
+
+    add_theme_support('custom-header', $defaults);
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_image_size('profLandscape', 400, 260, true);

@@ -4,7 +4,7 @@
       'title' => get_the_archive_title(),
       'subtitle' => get_the_archive_description(),
       'photo' => ''
-    ))
+    ));
  ?>
 
 <div class="container container--narrow page-section">
