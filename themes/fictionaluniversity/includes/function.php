@@ -86,3 +86,8 @@ function pageBanner($args = NULL){
 <?php 
 
 }
+
+function universityMapKey($api){
+    $api['key'] = 'AIzaSyAL3ay0XDEJohdqxYm2sjOViA7V1VWZjNU';
+    return $api;
+}

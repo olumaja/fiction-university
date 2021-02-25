@@ -184,7 +184,7 @@ function university_post_types(){
         'supports'          => array('title', 'editor', 'excerpt'),
         'rewrite'           => array('slug' => 'campuses'),
         'has_archive'       => true,
-        'description'       => 'See all our campus',
+        'description'       => 'See all our campuses',
     ));
 
 }
