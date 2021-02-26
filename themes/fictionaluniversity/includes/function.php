@@ -48,10 +48,15 @@ function university_adjust_queries($query){
         ));
     }
 
-    //This manipulte how program is been queried
+    //This manipulate how program is been queried
     if(!is_admin() AND is_post_type_archive('program') AND $query->is_main_query()){
         $query->set('orderby', 'title');
         $query->set('order', 'ASC' );
+    }
+
+    //This manipulate how campus is been queried
+    if(!is_admin() AND is_post_type_archive('campus') AND $query->is_main_query()){
+        $query->set('posts_per_page', -1);
     }
 
 }

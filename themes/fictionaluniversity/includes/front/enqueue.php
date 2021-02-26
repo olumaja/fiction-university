@@ -16,8 +16,10 @@
         wp_enqueue_style('fu_university_style');
 
         wp_register_script('main-js-script', get_theme_file_uri('/asset/js/scripts-bundled.js'), [], $ver, true);
+        wp_register_script('googleMap', "//maps.googleapis.com/maps/api/js?key=AIzaSyAL3ay0XDEJohdqxYm2sjOViA7V1VWZjNU", [], $ver, true);
         
         wp_enqueue_script('jquery');
         wp_enqueue_script('main-js-script');
+        wp_enqueue_script('googleMap');
 
     }
