@@ -26,7 +26,11 @@
         wp_register_script('googleMap', "//maps.googleapis.com/maps/api/js?key=AIzaSyAL3ay0XDEJohdqxYm2sjOViA7V1VWZjNU", [], $ver, true);
         
         wp_enqueue_script('jquery');
-        wp_enqueue_script('main-js-script');
         wp_enqueue_script('googleMap');
+        wp_enqueue_script('main-js-script');
+
+        wp_localize_script('main-js-script', 'universityURL', array(
+            'root_url' => get_site_url()
+        ));
 
     }
