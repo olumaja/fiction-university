@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $, { when } from 'jquery';
 
 class Search{
 
@@ -74,13 +74,20 @@ class Search{
     }
 
     getResults(){
-        $.getJSON(universityURL.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val(), data => {
+
+        when(
+            $.getJSON(universityURL.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
+            $.getJSON(universityURL.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val())
+        ).then((posts, pages) => {
+            let allResults = posts[0].concat(pages[0]);
             this.resultDiv.html(`<h2 class="search-overlay__section-title">General Information</h2>
-                ${data.length ? `<ul class="link-list min-list">` : '<p>No match found</p>'}
-                    ${data.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
-                ${data.length ? `</ul>` : ''}
+                ${allResults.length ? `<ul class="link-list min-list">` : '<p>No match found</p>'}
+                    ${allResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+                ${allResults.length ? `</ul>` : ''}
             `);
             this.isSpinnerVisible = false;
+        }, () =>{
+            this.resultDiv.html("<p>Unexpected error! Please try again later</p>")
         });
         
     }
