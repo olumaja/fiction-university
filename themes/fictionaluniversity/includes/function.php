@@ -92,7 +92,14 @@ function pageBanner($args = NULL){
 
 }
 
+//For google map key
 function universityMapKey($api){
     $api['key'] = 'AIzaSyAL3ay0XDEJohdqxYm2sjOViA7V1VWZjNU';
     return $api;
+}
+
+function fu_custom_rest_api(){
+    register_rest_field('post', 'authorName', array(
+        'get_callback' => function(){return get_the_author();}
+    ));
 }
